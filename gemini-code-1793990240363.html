@@ -1,0 +1,1028 @@
+32372527<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر أولاد عياد - للملابس الشبابي والرجالي | اطلب أونلاين</title>
+    <meta name="description" content="متجر أولاد عياد للملابس الشبابي والرجالي - تشكيلة مميزة من الهوديز، الجواكت، وأحدث صيحات الموضة. اطلب الآن أونلاين ودفع عبر انستاباي ومحفظة 01279564188.">
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #2563eb;
+            --warning-color: #d97706;
+            --success-color: #16a34a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        header .store-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+        header .store-info p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .cart-btn, .size-guide-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .size-guide-btn {
+            background: var(--warning-color);
+        }
+        .cart-btn:hover {
+            background: #1d4ed8;
+        }
+        .size-guide-btn:hover {
+            background: #b45309;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .welcome-banner {
+            background: linear-gradient(135deg, #2563eb, #1e293b);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .filters-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .search-box input, .filter-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            width: 250px;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-image-stage {
+            position: relative;
+        }
+        .product-image-button {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 250px;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            background: #e2e8f0;
+            cursor: zoom-in;
+        }
+        .product-image-button:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: -3px;
+        }
+        .product-image-nav {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            transform: translateY(-50%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.72);
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .product-image-nav.previous {
+            left: 10px;
+        }
+        .product-image-nav.next {
+            right: 10px;
+        }
+        .product-image-nav[hidden], .product-image-count[hidden] {
+            display: none;
+        }
+        .product-image-count {
+            position: absolute;
+            right: 50%;
+            bottom: 10px;
+            z-index: 2;
+            transform: translateX(50%);
+            padding: 2px 9px;
+            border-radius: 4px;
+            background: rgba(15, 23, 42, 0.72);
+            color: #fff;
+            font-size: 0.8rem;
+            direction: ltr;
+        }
+        .product-actions {
+            padding: 0 1.5rem 1.5rem;
+        }
+        .btn-inquire {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border: 0;
+            border-radius: 6px;
+            background: #0f766e;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-inquire:hover {
+            background: #115e59;
+        }
+        .qr-cover {
+            position: absolute;
+            left: 1.5%;
+            bottom: 1.5%;
+            width: 15%;
+            height: 14%;
+            background: #fff;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        .qr-cover[hidden] {
+            display: none;
+        }
+        .qr-cover.right {
+            right: 1.5%;
+            left: auto;
+        }
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .image-modal.is-open {
+            display: flex;
+        }
+        .image-modal-content {
+            position: relative;
+            display: flex;
+            max-width: 94vw;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+        }
+        .image-modal-title {
+            max-width: 80vw;
+            text-align: center;
+        }
+        .image-modal-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            z-index: 1;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .image-modal-frame {
+            position: relative;
+            display: inline-block;
+            max-width: 90vw;
+            max-height: 82vh;
+        }
+        .image-modal-frame img {
+            display: block;
+            max-width: 90vw;
+            max-height: 82vh;
+            object-fit: contain;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .product-price {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .size-select-group {
+            margin-bottom: 1rem;
+        }
+        .size-select-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .size-select-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            font-size: 0.95rem;
+        }
+        .btn-add {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-add:hover {
+            background: #334155;
+        }
+        
+        /* Modal السلة وجدول المقاسات */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            padding: 1.5rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ef4444;
+        }
+        .cart-items-list {
+            list-style: none;
+            margin-bottom: 1rem;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #f1f5f9;
+            font-size: 0.95rem;
+        }
+        .customer-form label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .customer-form input, .customer-form textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .coupon-section {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+        .coupon-section input {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .coupon-section button {
+            background: var(--warning-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cart-total {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .btn-whatsapp-checkout {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-whatsapp-checkout:hover {
+            background: #20ba5a;
+        }
+        .info-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        .info-box h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        .info-box ul {
+            padding-right: 1.2rem;
+        }
+        .reviews-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        .review-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            border-right: 4px solid var(--accent-color);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+        }
+        table.size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table.size-table th, table.size-table td {
+            border: 1px solid #cbd5e1;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        table.size-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="store-info">
+            <h1>متجر أولاد عياد</h1>
+            <p>أناقة الرجل العصري والشباب - جواكت، هوديز، وملابس شتوية</p>
+        </div>
+        <div class="header-actions">
+            <button class="size-guide-btn" onclick="toggleSizeGuide()">📏 جدول المقاسات</button>
+            <button class="cart-btn" onclick="toggleCart()">🛒 السلة (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- بانر عرض أول طلب -->
+        <div class="welcome-banner">
+            ⚡ خصم 10% على أول أوردر ليك من أولاد عياد باستخدام الكود: <code>AYAD10</code>
+        </div>
+
+        <!-- فلاتر والبحث -->
+        <div class="filters-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن منتج..." onkeyup="filterProducts()">
+            </div>
+            <div>
+                <select id="categoryFilter" class="filter-select" onchange="filterProducts()">
+                    <option value="all">جميع المنتجات</option>
+                    <option value="hoodie">هودي وشباتي</option>
+                    <option value="jacket">جواكت</option>
+                </select>
+            </div>
+        </div>
+
+        <h2 class="section-title">🛍️ منتجاتنا المميزة</h2>
+        <div class="products-grid" id="productsGrid"></div>
+
+        <!-- قسم آراء العملاء (سوشيال بروف) -->
+        <div class="reviews-section">
+            <h3 style="margin-bottom: 1rem; color: var(--primary-color);">⭐ ركن آراء العملاء (سوشيال بروف)</h3>
+            <div class="review-card">
+                <p><strong>محمود إبراهيم:</strong> "الخامة ممتازة جداً والمقاس مظبوط بالظبط زي جدول المقاسات، والسرعة في التوصيل شكراً أولاد عياد!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>أحمد سمير:</strong> "التوصيل كان سريع والجاكيت على الطبيعة أحلى بكتير من الصور، والدفع عبر انستاباي كان سهل وسريع."</p>
+            </div>
+        </div>
+
+        <!-- قسم سياسة الشحن والدفع -->
+        <div class="info-box">
+            <h3>🚚 سياسة الشحن والدفع</h3>
+            <p>للحجز وتأكيد طلبك، يمكنك التحويل على الرقم التالي:</p>
+            <ul>
+                <li><strong>انستا باي ومحفظة إلكترونية:</strong> <code>01279564188</code></li>
+                <li><strong>الشحن:</strong> الشحن داخل المحافظة بـ 50 ج، ومجاني لو الأوردر عدى 1500 جنيهاً.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- نافذة جدول المقاسات -->
+    <div class="modal" id="sizeGuideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📏 جدول المقاسات التفصيلي (بالسنتيمتر)</h3>
+                <button class="close-modal" onclick="toggleSizeGuide()">×</button>
+            </div>
+            <table class="size-table">
+                <tr>
+                    <th>المقاس</th>
+                    <th>عرض الصدر (سم)</th>
+                    <th>الطول (سم)</th>
+                </tr>
+                <tr><td>Medium</td><td>52</td><td>68</td></tr>
+                <tr><td>Large</td><td>55</td><td>70</td></tr>
+                <tr><td>X-Large</td><td>58</td><td>72</td></tr>
+                <tr><td>2XL</td><td>61</td><td>74</td></tr>
+                <tr><td>3XL</td><td>64</td><td>76</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- نافذة السلة (Modal) -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>سلة المشتريات وإتمام الطلب</h3>
+                <button class="close-modal" onclick="toggleCart()">×</button>
+            </div>
+            
+            <ul class="cart-items-list" id="cartItemsList">
+                <li style="text-align: center; color: #64748b;">السلة فارغة حالياً</li>
+            </ul>
+
+            <!-- خانة كود الخصم -->
+            <div class="coupon-section">
+                <input type="text" id="couponInput" placeholder="أدخل كود الخصم (مثال: AYAD10)">
+                <button onclick="applyCoupon()">تطبيق</button>
+            </div>
+
+            <!-- بيانات العميل -->
+            <div class="customer-form">
+                <label for="customerName">الاسم الكريم:</label>
+                <input type="text" id="customerName" placeholder="اكتب اسمك كاملاً هنا">
+
+                <label for="customerAddress">عنوان الشحنة بالتفصيل:</label>
+                <textarea id="customerAddress" rows="2" placeholder="المدينة، المنطقة، الشارع، رقم الحارة..."></textarea>
+            </div>
+
+            <div class="cart-total" id="cartTotal">الإجمالي: 0 ج.م</div>
+            <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">تأكيد وإرسال الطلب عبر الواتساب 📱</button>
+        </div>
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-hidden="true" onclick="closeImage()">
+        <div class="image-modal-content" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle" onclick="event.stopPropagation()">
+            <button class="image-modal-close" type="button" onclick="closeImage()" aria-label="إغلاق الصورة">×</button>
+            <h3 class="image-modal-title" id="imageModalTitle"></h3>
+            <div class="image-modal-frame">
+                <img id="imageModalPhoto" src="" alt="">
+                <span class="qr-cover" aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - متجر أولاد عياد</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let discountPercentage = 0;
+        let lastFocusedImage = null;
+
+        const productCatalog = [
+            {
+                title: 'هودي زيوس الشتوي الرجالي - كود 2036',
+                price: 650,
+                qr: true,
+                sizes: ['L', 'XL', '2XL', '3XL'],
+                sizeLabel: 'اختر المقاس:',
+                variants: [
+                    { name: 'أزرق', images: ['photo_2026-11-06_20-21-32.jpg', 'photo_2026-11-06_20-21-37.jpg', 'photo_2026-11-06_20-22-47.jpg', 'photo_2026-11-06_20-22-50.jpg'] },
+                    { name: 'نبيتي', images: ['photo_2026-11-06_20-22-56.jpg', 'photo_2026-11-06_20-22-59.jpg', 'photo_2026-11-06_20-23-00.jpg', 'photo_2026-11-06_20-23-01.jpg'] },
+                    { name: 'أسود', images: ['photo_2026-11-06_20-23-04.jpg', 'photo_2026-11-06_20-23-05.jpg', 'photo_2026-11-06_20-23-06 (2).jpg', 'photo_2026-11-06_20-23-06.jpg', 'photo_2026-11-06_20-23-07.jpg'] }
+                ]
+            },
+            {
+                title: 'هودي زيوس الشتوي الأولادي - كود 1036',
+                price: 550,
+                qr: true,
+                sizes: ['12', '14', '16', '18'],
+                sizeLabel: 'اختر المقاس (سنوات):',
+                variants: [
+                    { name: 'نبيتي', images: ['photo_2026-11-06_20-23-09.jpg', 'photo_2026-11-06_20-23-10.jpg', 'photo_2026-11-06_20-23-11.jpg', 'photo_2026-11-06_20-23-12.jpg'] },
+                    { name: 'أسود', images: ['photo_2026-11-06_20-23-14.jpg', 'photo_2026-11-06_20-23-18.jpg'] },
+                    { name: 'أزرق', images: ['photo_2026-11-06_20-23-21.jpg', 'photo_2026-11-06_20-23-23.jpg'] }
+                ]
+            },
+            {
+                title: 'هودي ستريت وير',
+                price: null,
+                variants: [
+                    { name: 'أبيض', images: ['photo_2026-11-06_20-23-27.jpg', 'photo_2026-11-06_20-23-33.jpg'] },
+                    { name: 'نبيتي', images: ['photo_2026-11-06_20-23-28.jpg'] },
+                    { name: 'أسود', images: ['photo_2026-11-06_20-23-29.jpg', 'photo_2026-11-06_20-23-34.jpg'] },
+                    { name: 'أزرق', images: ['photo_2026-11-06_20-23-30.jpg', 'photo_2026-11-06_20-23-32.jpg'] }
+                ]
+            },
+            {
+                title: 'هودي زيوس الأولادي بتصميم Daniel',
+                price: null,
+                qr: true,
+                variants: [
+                    { name: 'نبيتي', images: ['photo_2026-11-06_20-23-35.jpg', 'photo_2026-11-06_20-23-36 (2).jpg', 'photo_2026-11-06_20-23-36.jpg'] },
+                    { name: 'أسود', images: ['photo_2026-11-06_20-23-38.jpg', 'photo_2026-11-06_20-23-39.jpg'] },
+                    { name: 'أزرق', images: ['photo_2026-11-06_20-23-40 (2).jpg', 'photo_2026-11-06_20-23-40.jpg'] }
+                ]
+            },
+            {
+                title: 'هودي زيوس الرجالي - كود 2032',
+                price: null,
+                qr: true,
+                sizes: ['L', 'XL', '2XL', '3XL'],
+                sizeLabel: 'اختر المقاس:',
+                variants: [
+                    { name: 'رمادي', images: ['photo_2026-11-06_20-24-03.jpg'] },
+                    { name: 'بيج', images: ['photo_2026-11-06_20-24-20.jpg', 'photo_2026-11-06_20-24-21 (2).jpg', 'photo_2026-11-06_20-24-21.jpg', 'photo_2026-11-06_20-24-23.jpg', 'photo_2026-11-06_20-24-26.jpg'] }
+                ]
+            },
+            {
+                title: 'هودي زيوس الرجالي الأخضر - كود 2033',
+                price: null,
+                qr: true,
+                sizes: ['L', 'XL', '2XL', '3XL'],
+                sizeLabel: 'اختر المقاس:',
+                images: ['photo_2026-11-06_20-24-17.jpg']
+            },
+            {
+                title: 'هودي Mamme الأسود',
+                price: null,
+                images: ['photo_2026-11-06_20-24-12.jpg', 'photo_2026-11-06_20-24-13.jpg']
+            }
+        ];
+        const qrRightPhotos = new Set(['photo_2026-11-06_20-23-05.jpg']);
+
+        function openImage(button) {
+            const image = button.querySelector('img');
+            const card = button.closest('.product-card');
+            const modal = document.getElementById('imageModal');
+
+            lastFocusedImage = button;
+            document.getElementById('imageModalPhoto').src = image.src;
+            document.getElementById('imageModalPhoto').alt = image.alt;
+            const productTitle = card.querySelector('.product-title').textContent;
+            const selectedColor = card.querySelector('.product-color')?.value;
+            document.getElementById('imageModalTitle').textContent = selectedColor
+                ? `${productTitle} - ${selectedColor}`
+                : productTitle;
+            const modalQrCover = document.querySelector('#imageModal .qr-cover');
+            modalQrCover.hidden = card.dataset.hasQr !== 'true';
+            modalQrCover.classList.toggle('right', qrRightPhotos.has(image.src.split('/').pop()));
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            modal.querySelector('.image-modal-close').focus();
+        }
+
+        function closeImage() {
+            const modal = document.getElementById('imageModal');
+            if (!modal.classList.contains('is-open')) return;
+
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (lastFocusedImage) lastFocusedImage.focus();
+        }
+
+        function updateProductImage(card) {
+            const images = JSON.parse(card.dataset.images);
+            const index = Number(card.dataset.imageIndex);
+            const image = card.querySelector('.product-image');
+            const color = card.querySelector('.product-color')?.value;
+            const title = card.querySelector('.product-title').textContent;
+            const qrCover = card.querySelector('.qr-cover');
+
+            image.src = `images/${images[index]}`;
+            image.alt = `${title}${color ? ` - ${color}` : ''}`;
+            qrCover.hidden = card.dataset.hasQr !== 'true';
+            qrCover.classList.toggle('right', qrRightPhotos.has(images[index]));
+            card.querySelector('.product-image-button').setAttribute('aria-label', `عرض صورة ${image.alt} بحجم أكبر`);
+
+            const count = card.querySelector('.product-image-count');
+            count.textContent = `${index + 1} / ${images.length}`;
+            count.hidden = images.length < 2;
+            card.querySelectorAll('.product-image-nav').forEach(button => {
+                button.hidden = images.length < 2;
+            });
+        }
+
+        function changeProductImage(card, direction) {
+            const images = JSON.parse(card.dataset.images);
+            const currentIndex = Number(card.dataset.imageIndex);
+            card.dataset.imageIndex = String((currentIndex + direction + images.length) % images.length);
+            updateProductImage(card);
+        }
+
+        function renderProductCatalog() {
+            const grid = document.getElementById('productsGrid');
+
+            productCatalog.forEach((product, index) => {
+                const variants = product.variants || [{ name: '', images: product.images }];
+                const card = document.createElement('article');
+                card.className = 'product-card';
+                card.dataset.category = 'hoodie';
+                card.dataset.name = `${product.title} ${variants.map(variant => variant.name).join(' ')}`.toLowerCase();
+                card.dataset.hasQr = String(Boolean(product.qr));
+                card.dataset.images = JSON.stringify(variants[0].images);
+                card.dataset.imageIndex = '0';
+
+                const imageStage = document.createElement('div');
+                imageStage.className = 'product-image-stage';
+
+                const imageButton = document.createElement('button');
+                imageButton.className = 'product-image-button';
+                imageButton.type = 'button';
+                imageButton.addEventListener('click', () => openImage(imageButton));
+
+                const image = document.createElement('img');
+                image.className = 'product-image';
+                image.loading = 'lazy';
+                const qrCover = document.createElement('span');
+                qrCover.className = 'qr-cover';
+                qrCover.setAttribute('aria-hidden', 'true');
+                imageButton.append(image, qrCover);
+
+                const previousButton = document.createElement('button');
+                previousButton.className = 'product-image-nav previous';
+                previousButton.type = 'button';
+                previousButton.textContent = '‹';
+                previousButton.setAttribute('aria-label', 'الصورة السابقة');
+                previousButton.addEventListener('click', () => changeProductImage(card, -1));
+
+                const nextButton = document.createElement('button');
+                nextButton.className = 'product-image-nav next';
+                nextButton.type = 'button';
+                nextButton.textContent = '›';
+                nextButton.setAttribute('aria-label', 'الصورة التالية');
+                nextButton.addEventListener('click', () => changeProductImage(card, 1));
+
+                const imageCount = document.createElement('span');
+                imageCount.className = 'product-image-count';
+                imageStage.append(imageButton, previousButton, nextButton, imageCount);
+                card.appendChild(imageStage);
+
+                const info = document.createElement('div');
+                info.className = 'product-info';
+                const title = document.createElement('div');
+                title.className = 'product-title';
+                title.textContent = product.title;
+                const price = document.createElement('div');
+                price.className = 'product-price';
+                price.textContent = product.price === null ? 'السعر عند الطلب' : `${product.price} ج.م`;
+                info.append(title, price);
+
+                let colorSelect = null;
+                if (variants.length > 1) {
+                    const colorGroup = document.createElement('div');
+                    colorGroup.className = 'size-select-group';
+                    const colorLabel = document.createElement('label');
+                    colorLabel.htmlFor = `product-color-${index}`;
+                    colorLabel.textContent = 'اختر اللون:';
+                    colorSelect = document.createElement('select');
+                    colorSelect.className = 'product-color';
+                    colorSelect.id = colorLabel.htmlFor;
+                    variants.forEach(variant => colorSelect.add(new Option(variant.name, variant.name)));
+                    colorSelect.addEventListener('change', () => {
+                        const selectedVariant = variants.find(variant => variant.name === colorSelect.value);
+                        card.dataset.images = JSON.stringify(selectedVariant.images);
+                        card.dataset.imageIndex = '0';
+                        updateProductImage(card);
+                    });
+                    colorGroup.append(colorLabel, colorSelect);
+                    info.appendChild(colorGroup);
+                }
+
+                let sizeSelect = null;
+                if (product.sizes) {
+                    const sizeGroup = document.createElement('div');
+                    sizeGroup.className = 'size-select-group';
+                    const sizeLabel = document.createElement('label');
+                    sizeLabel.htmlFor = `product-size-${index}`;
+                    sizeLabel.textContent = product.sizeLabel;
+                    sizeSelect = document.createElement('select');
+                    sizeSelect.id = sizeLabel.htmlFor;
+                    product.sizes.forEach(size => sizeSelect.add(new Option(size, size)));
+                    sizeGroup.append(sizeLabel, sizeSelect);
+                    info.appendChild(sizeGroup);
+                }
+                card.appendChild(info);
+
+                const actions = document.createElement('div');
+                actions.className = 'product-actions';
+                const actionButton = document.createElement('button');
+                actionButton.type = 'button';
+                if (product.price === null) {
+                    actionButton.className = 'btn-inquire';
+                    actionButton.textContent = 'استفسر عن السعر عبر واتساب';
+                    actionButton.addEventListener('click', () => inquireProduct(product.title, colorSelect?.value));
+                } else {
+                    actionButton.className = 'btn-add';
+                    actionButton.textContent = 'أضف إلى السلة';
+                    actionButton.addEventListener('click', () => addToCart(product.title, product.price, sizeSelect.id, colorSelect?.id));
+                }
+                actions.appendChild(actionButton);
+                card.appendChild(actions);
+                grid.appendChild(card);
+                updateProductImage(card);
+            });
+        }
+
+        function inquireProduct(name, color) {
+            const details = color ? ` - اللون ${color}` : '';
+            const message = `السلام عليكم، أريد معرفة سعر ومقاسات ${name}${details}.`;
+            window.open(`https://wa.me/201279564188?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+        }
+
+        renderProductCatalog();
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeImage();
+        });
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function toggleSizeGuide() {
+            const modal = document.getElementById('sizeGuideModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function filterProducts() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const categoryVal = document.getElementById('categoryFilter').value;
+            const cards = document.querySelectorAll('.products-card, .product-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category');
+                const matchesSearch = title.includes(searchVal);
+                const matchesCategory = (categoryVal === 'all' || category === categoryVal);
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function addToCart(name, price, selectId, colorSelectId) {
+            const selectElement = document.getElementById(selectId);
+            const selectedSize = selectElement.value;
+            const selectedColor = colorSelectId ? document.getElementById(colorSelectId).value : '';
+            const itemName = selectedColor ? `${name} (${selectedColor})` : name;
+            
+            const existingItem = cart.find(item => item.name === itemName && item.size === selectedSize);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: itemName,
+                    price: price,
+                    size: selectedSize,
+                    quantity: 1
+                });
+            }
+            
+            updateCartUI();
+            alert(`تم إضافة "${itemName}" (مقاس: ${selectedSize}) إلى السلة بنجاح!`);
+        }
+
+        function applyCoupon() {
+            const code = document.getElementById('couponInput').value.trim();
+            if (code === 'AYAD10') {
+                discountPercentage = 10;
+                alert('تم تطبيق خصم 10% بنجاح!');
+                updateCartUI();
+            } else {
+                alert('كود الخصم غير صحيح!');
+            }
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartTotal = document.getElementById('cartTotal');
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            cartItemsList.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = '<li style="text-align: center; color: #64748b;">السلة فارغة حالياً</li>';
+            } else {
+                cart.forEach((item, index) => {
+                    totalCount += item.quantity;
+                    totalPrice += item.price * item.quantity;
+
+                    const li = document.createElement('li');
+                    li.className = 'cart-item';
+                    li.innerHTML = `
+                        <span>${item.name} (${item.size}) x${item.quantity}</span>
+                        <span>${item.price * item.quantity} ج.م 
+                            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer; margin-right:8px;">🗑️</button>
+                        </span>
+                    `;
+                    cartItemsList.appendChild(li);
+                });
+            }
+
+            if (discountPercentage > 0) {
+                totalPrice = totalPrice * (1 - discountPercentage / 100);
+            }
+
+            cartCount.innerText = totalCount;
+            cartTotal.innerText = `الإجمالي بعد الخصم والشحن: ${totalPrice} ج.م`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('السلة فارغة! يرجى إضافة منتجات أولاً.');
+                return;
+            }
+
+            const name = document.getElementById('customerName').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+
+            if (!name || !address) {
+                alert('من فضلك ادخل (الاسم) و(العنوان) قبل تأكيد الطلب.');
+                return;
+            }
+
+            const randomOrderId = Math.floor(1000 + Math.random() * 9000);
+
+            let message = `🛒 *طلب جديد من متجر أولاد عياد* %23${randomOrderId}%0A%0A`;
+            message += `👤 *اسم العميل:* ${name}%0A`;
+            message += `📍 *العنوان:* ${address}%0A%0A`;
+            message += `📦 *المنتجات المطلوبة:*%0A`;
+            
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                message += `- ${item.name} | المقاس: ${item.size} | الكمية: ${item.quantity} | السعر: ${itemTotal} ج.م%0A`;
+            });
+
+            if (discountPercentage > 0) {
+                totalPrice = totalPrice * (1 - discountPercentage / 100);
+                message += `%0A🏷️ *الخصم المطبق:* ${discountPercentage}%`;
+            }
+
+            message += `%0A%0A💰 *الإجمالي الكلي:* ${totalPrice} ج.م%0A`;
+            message += `💳 *طريقة الدفع:* تم التحويل على رقم 01279564188 (يرجى إرفاق سكرين شوت الإيصال هنا).`;
+
+            let whatsappUrl = `https://wa.me/201279564188?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>

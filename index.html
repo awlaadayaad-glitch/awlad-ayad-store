@@ -3,515 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- بيانات السيو وتحسين محركات البحث -->
-    <title>متجر أولاد عياد - للملابس الشبابي والرجالي |</title>
-    <meta name="description" content="متجر أولاد عياد للملابس الشبابي والرجالي - تشكيلة مميزة من الجواكت، القمصان، وأحدث صيحات الموضة. اطلب الآن أونلاين ودفع عبر انستاباي ومحفظة 01279564188.">
-    <meta name="keywords" content="أولاد عياد, ملابس رجالي, ملابس شبابي, جواكت رجالي, قمصان صيفي, متجر ملابس مصر, تسوق أونلاين">
-    <meta name="author" content="Awlad Ayad Store">
-
-    <!-- لظهور الموقع بشكل احترافي عند مشاركته على السوشيال ميديا -->
-    <meta property="og:title" content="متجر أولاد عياد - للملابس الشبابي والرجالي">
-    <meta property="og:description" content="تصفح أحدث تشكيلة جواكت وقمصان رجالي وشبابي. اطلب الآن بسهولة!">
-    <meta property="og:type" content="website">
-
-    <style>
-        :root {
-            --primary-color: #1e293b;
-            --accent-color: #2563eb;
-            --warning-color: #d97706;
-            --success-color: #16a34a;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #334155;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        header {
-            background: var(--primary-color);
-            color: white;
-            padding: 2rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        header .store-info h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.2rem;
-        }
-        header .store-info p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        .cart-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1rem;
-            transition: background 0.2s;
-        }
-        .cart-btn:hover {
-            background: #1d4ed8;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-info {
-            padding: 1.5rem;
-        }
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        .product-price {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .size-select-group {
-            margin-bottom: 1rem;
-        }
-        .size-select-group label {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-        }
-        .size-select-group select {
-            width: 100%;
-            padding: 0.5rem;
-            border-radius: 6px;
-            border: 1px solid #cbd5e1;
-            background: #fff;
-            font-size: 0.95rem;
-        }
-        .btn-add {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-add:hover {
-            background: #334155;
-        }
-        
-        /* تصميم السلة (Modal) */
-        .cart-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 1rem;
-        }
-        .cart-content {
-            background: white;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            padding: 1.5rem;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #ef4444;
-        }
-        .cart-items-list {
-            list-style: none;
-            margin-bottom: 1rem;
-            max-height: 150px;
-            overflow-y: auto;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed #f1f5f9;
-            font-size: 0.95rem;
-        }
-        .customer-form {
-            margin-bottom: 1rem;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1rem;
-        }
-        .customer-form label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        .customer-form input, .customer-form textarea {
-            width: 100%;
-            padding: 0.6rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-        .cart-total {
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-align: left;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        .btn-whatsapp-checkout {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem;
-            border-radius: 6px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-whatsapp-checkout:hover {
-            background: #20ba5a;
-        }
-        .info-box {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0;
-        }
-        .info-box h3 {
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-        }
-        .info-box ul {
-            padding-right: 1.2rem;
-        }
-        .info-box li {
-            margin-bottom: 0.4rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--primary-color);
-            color: white;
-            margin-top: 3rem;
-        }
-    </style>
+    <meta name="description" content="تسوق هوديز وملابس شتوية رجالي وأولادي من متجر أولاد عياد.">
+    <title>متجر أولاد عياد | ملابس شتوية</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/telegram-products.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
-
-    <header>
-        <div class="store-info">
-            <h1>متجر أولاد عياد</h1>
-            <p>أناقة الرجل العصري - جواكت، قمصان، وملابس شبابي</p>
-        </div>
-        <button class="cart-btn" onclick="toggleCart()">
-            🛒 السلة (<span id="cart-count">0</span>)
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="متجر أولاد عياد، الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true">AA</span>
+            <span class="brand-copy">
+                <strong>متجر أولاد عياد</strong>
+                <small>أناقة الرجل العصري والشباب</small>
+            </span>
+        </a>
+        <button class="cart-trigger" id="openCart" type="button">
+            <span aria-hidden="true">🛒</span>
+            <span>السلة</span>
+            <span class="cart-count" id="cartCount">0</span>
         </button>
     </header>
 
-    <div class="container">
-        
-        <!-- قسم المنتجات -->
-        <h2 class="section-title">🛍️ منتجاتنا</h2>
-        <div class="products-grid">
-            
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-title">جاكيت بومبر شبابي عصري</div>
-                    <div class="product-price">850 ج.م</div>
-                    <div class="size-select-group">
-                        <label for="p1-size">اختر المقاس:</label>
-                        <select id="p1-size">
-                            <option value="Medium">Medium (متوفر)</option>
-                            <option value="Large">Large (حجز مسبق / تكرار)</option>
-                            <option value="X-Large">X-Large (متوفر)</option>
-                            <option value="XX-Large">XX-Large (حجز مسبق / تكرار)</option>
+    <main id="top">
+        <section class="store-banner" aria-label="عرض المتجر">
+            <div>
+                <p class="eyebrow">تشكيلة الشتاء</p>
+                <h1>اختار إطلالتك</h1>
+                <p>هوديز رجالي وأولادي بألوان وموديلات متنوعة.</p>
+            </div>
+            <strong class="discount-code">خصم 10% <span>AYAD10</span></strong>
+        </section>
+
+        <section class="catalog-section" aria-labelledby="catalogTitle">
+            <div class="catalog-toolbar">
+                <div>
+                    <p class="eyebrow">تسوق حسب الموديل</p>
+                    <h2 id="catalogTitle">منتجاتنا</h2>
+                </div>
+                <div class="catalog-filters">
+                    <label class="search-field">
+                        <span class="visually-hidden">ابحث عن منتج</span>
+                        <input id="searchInput" type="search" placeholder="ابحث عن منتج..." autocomplete="off">
+                    </label>
+                    <label class="type-filter">
+                        <span class="visually-hidden">فلترة حسب نوع المنتج</span>
+                        <select id="typeFilter">
+                            <option value="all">كل الأنواع</option>
+                            <option value="set">الأطقم</option>
+                            <option value="hoodie">الهوديز</option>
+                            <option value="channel">منتجات القناة</option>
                         </select>
-                    </div>
-                </div>
-                <div style="padding: 0 1.5rem 1.5rem 1.5rem;">
-                    <button class="btn-add" onclick="addToCart('جاكيت بومبر شبابي عصري', 850, 'p1-size')">أضف إلى السلة</button>
-                </div>
-            </div>
-
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-title">قميص لينن صيفي أنيق</div>
-                    <div class="product-price">350 ج.م</div>
-                    <div class="size-select-group">
-                        <label for="p2-size">اختر المقاس:</label>
-                        <select id="p2-size">
-                            <option value="Medium">Medium (متوفر)</option>
-                            <option value="Large">Large (متوفر)</option>
-                            <option value="X-Large">X-Large (حجز مسبق / تكرار)</option>
-                            <option value="XX-Large">XX-Large (متوفر)</option>
+                    </label>
+                    <label class="sort-field">
+                        <span class="visually-hidden">ترتيب المنتجات حسب السعر</span>
+                        <select id="priceSort">
+                            <option value="default">الترتيب الافتراضي</option>
+                            <option value="low-high">السعر: من الأقل للأعلى</option>
+                            <option value="high-low">السعر: من الأعلى للأقل</option>
                         </select>
-                    </div>
-                </div>
-                <div style="padding: 0 1.5rem 1.5rem 1.5rem;">
-                    <button class="btn-add" onclick="addToCart('قميص لينن صيفي أنيق', 350, 'p2-size')">أضف إلى السلة</button>
+                    </label>
                 </div>
             </div>
-
-            <!-- منتج 3 -->
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-title">جاكيت جلد رجالي فاخر</div>
-                    <div class="product-price">1100 ج.م</div>
-                    <div class="size-select-group">
-                        <label for="p3-size">اختر المقاس:</label>
-                        <select id="p3-size">
-                            <option value="Large">Large (متوفر)</option>
-                            <option value="X-Large">X-Large (متوفر)</option>
-                            <option value="XX-Large">XX-Large (حجز مسبق / تكرار)</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="padding: 0 1.5rem 1.5rem 1.5rem;">
-                    <button class="btn-add" onclick="addToCart('جاكيت جلد رجالي فاخر', 1100, 'p3-size')">أضف إلى السلة</button>
-                </div>
+            <div class="category-tabs" role="tablist" aria-label="أقسام المنتجات">
+                <button class="category-tab" id="menTab" type="button" role="tab" aria-selected="true" aria-controls="menPanel" tabindex="0" data-category="men">الرجالي</button>
+                <button class="category-tab" id="kidsTab" type="button" role="tab" aria-selected="false" aria-controls="kidsPanel" tabindex="-1" data-category="kids">الأولادي</button>
+                <button class="category-tab" id="summerTab" type="button" role="tab" aria-selected="false" aria-controls="summerPanel" tabindex="-1" data-category="summer">صيفي</button>
+                <button class="category-tab" id="winterTab" type="button" role="tab" aria-selected="false" aria-controls="winterPanel" tabindex="-1" data-category="winter">شتوي</button>
+                <button class="category-tab" id="channelTab" type="button" role="tab" aria-selected="false" aria-controls="channelPanel" tabindex="-1" data-category="channel">منتجات إضافية</button>
             </div>
+            <div class="product-sections" id="productsGrid" aria-live="polite"></div>
+            <p class="empty-state" id="emptyState" hidden>مفيش منتجات مطابقة لبحثك.</p>
+        </section>
 
-            <!-- منتج 4 -->
-            <div class="product-card">
-                <div class="product-info">
-                    <div class="product-title">قميص كاروه كاجوال شبابي</div>
-                    <div class="product-price">380 ج.م</div>
-                    <div class="size-select-group">
-                        <label for="p4-size">اختر المقاس:</label>
-                        <select id="p4-size">
-                            <option value="Medium">Medium (حجز مسبق / تكرار)</option>
-                            <option value="Large">Large (متوفر)</option>
-                            <option value="X-Large">X-Large (متوفر)</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="padding: 0 1.5rem 1.5rem 1.5rem;">
-                    <button class="btn-add" onclick="addToCart('قميص كاروه كاجوال شبابي', 380, 'p4-size')">أضف إلى السلة</button>
-                </div>
+        <section class="reviews-section" aria-labelledby="reviewsTitle">
+            <div class="reviews-heading">
+                <p class="eyebrow">تجارب من عملائنا</p>
+                <h2 id="reviewsTitle">آراء العملاء</h2>
             </div>
-
-        </div>
-
-        <!-- قسم طرق الدفع والحجز -->
-        <div class="info-box">
-            <h3>💳 طرق الدفع والحجز</h3>
-            <p>للحجز وتأكيد طلبك، يمكنك التحويل بإحدى الطرق التالية على نفس الرقم:</p>
-            <ul>
-                <li><strong>انستا باي (InstaPay):</strong> <code>01067435137</code></li>
-                <li><strong>محفظة إلكترونية (فودافون / اتصالات / أورانج):</strong> <code>01067435137</code></li>
-            </ul>
-            <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #d97706;">📌 ملاحظة: المقاسات التي تحتوي على عبارة "حجز مسبق / تكرار" غير متاحة حالياً للتسليم الفوري ولكن يمكنك حجزها وسيتم توفيرها لك.</p>
-        </div>
-
-    </div>
-
-    <!-- نافذة السلة (Modal) -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h3>سلة المشتريات وإتمام الطلب</h3>
-                <button class="close-cart" onclick="toggleCart()">×</button>
+            <div class="reviews-list">
+                <blockquote class="review-quote">
+                    <p>"الخامة ممتازة جداً والمقاس مظبوط بالظبط زي جدول المقاسات، والسرعة في التوصيل شكراً أولاد عياد!"</p>
+                    <cite>محمود إبراهيم</cite>
+                </blockquote>
+                <blockquote class="review-quote">
+                    <p>"التوصيل كان سريع والجاكيت على الطبيعة أحلى بكتير من الصور، والدفع عبر انستاباي كان سهل وسريع."</p>
+                    <cite>أحمد سمير</cite>
+                </blockquote>
             </div>
-            
-            <ul class="cart-items-list" id="cartItemsList">
-                <li style="text-align: center; color: #64748b;">السلة فارغة حالياً</li>
-            </ul>
+        </section>
 
-            <!-- حقول بيانات العميل (الاسم والعنوان) -->
-            <div class="customer-form">
-                <label for="customerName">الاسم الكريم:</label>
-                <input type="text" id="customerName" placeholder="اكتب اسمك كاملاً هنا">
-
-                <label for="customerAddress">عنوان الشحنة بالتفصيل:</label>
-                <textarea id="customerAddress" rows="2" placeholder="المدينة، المنطقة، الشارع، رقم الحانة..."></textarea>
+        <section class="store-details" aria-label="معلومات الدفع والشحن">
+            <div>
+                <span class="details-label">الدفع</span>
+                <p>انستا باي ومحفظة إلكترونية</p>
+                <strong>01279564188</strong>
             </div>
+            <div>
+                <span class="details-label">الشحن</span>
+                <p>داخل المحافظة بـ 50 ج. شحن مجاني للأوردرات فوق 1500 ج.</p>
+            </div>
+        </section>
+    </main>
 
-            <div class="cart-total" id="cartTotal">الإجمالي: 0 ج.م</div>
-            <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">تأكيد وإرسال الطلب عبر الواتساب</button>
-        </div>
-    </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة © 2026 - متجر أولاد عياد</p>
+    <footer class="site-footer">
+        <span>متجر أولاد عياد</span>
+        <span>جميع الحقوق محفوظة © 2026</span>
     </footer>
 
-    <script>
-        let cart = [];
+    <dialog class="site-dialog size-guide-dialog" id="sizeGuideDialog" aria-labelledby="sizeGuideTitle">
+        <div class="dialog-header">
+            <h2 id="sizeGuideTitle">جدول المقاسات</h2>
+            <button class="icon-button" type="button" data-close-dialog="sizeGuideDialog" aria-label="إغلاق جدول المقاسات">×</button>
+        </div>
+        <section class="size-guide-panel" id="adultSizeGuide">
+            <p class="measurement-note">القياسات بالسنتيمتر. عرض الصدر مقاس القطعة وهي مسطحة، ومحيط الصدر تقريبي (ضعف العرض).</p>
+            <div class="table-scroll">
+                <table class="size-table">
+                    <thead>
+                        <tr><th>المقاس</th><th>الطول</th><th>عرض الصدر</th><th>محيط الصدر التقريبي</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>M</td><td>68</td><td>52</td><td>104</td></tr>
+                        <tr><td>L</td><td>70</td><td>55</td><td>110</td></tr>
+                        <tr><td>XL</td><td>72</td><td>58</td><td>116</td></tr>
+                        <tr><td>2XL</td><td>74</td><td>61</td><td>122</td></tr>
+                        <tr><td>3XL</td><td>76</td><td>64</td><td>128</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="size-guide-panel" id="kidsSizeGuide" hidden>
+            <p>المقاسات الأولادي المتاحة: 12 و14 و16 و18 سنة.</p>
+            <p class="measurement-note">قياسات الأولادي بالسنتيمتر غير متوفرة في بيانات المنتجات الحالية. تواصل معنا للتأكد من المقاس قبل الطلب.</p>
+        </section>
+    </dialog>
 
-        function toggleCart() {
-            const modal = document.getElementById('cartModal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
+    <dialog class="site-dialog cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+        <div class="dialog-header">
+            <h2 id="cartTitle">سلة المشتريات</h2>
+            <button class="icon-button" type="button" data-close-dialog="cartDialog" aria-label="إغلاق السلة">×</button>
+        </div>
+        <ul class="cart-items" id="cartItems"></ul>
+        <p class="cart-empty" id="cartEmpty">السلة فاضية حاليًا.</p>
+        <div class="coupon-row">
+            <label class="visually-hidden" for="couponInput">كود الخصم</label>
+            <input id="couponInput" type="text" placeholder="كود الخصم">
+            <button class="button button-secondary" id="applyCoupon" type="button">تطبيق</button>
+        </div>
+        <p class="coupon-status" id="couponStatus" aria-live="polite"></p>
+        <form class="customer-form" id="checkoutForm">
+            <label for="customerName">الاسم</label>
+            <input id="customerName" name="name" type="text" autocomplete="name" required>
+            <label for="customerAddress">عنوان التوصيل</label>
+            <textarea id="customerAddress" name="address" rows="3" autocomplete="street-address" required></textarea>
+            <p class="receipt-note">بعد التحويل على انستا باي أو المحفظة، ابعت صورة الإيصال في نفس محادثة واتساب مع الطلب.</p>
+            <p class="cart-total" id="cartTotal">الإجمالي: 0 ج.م</p>
+            <button class="button button-whatsapp" type="submit">إرسال الطلب عبر واتساب</button>
+        </form>
+    </dialog>
 
-        function addToCart(name, price, selectId) {
-            const selectElement = document.getElementById(selectId);
-            const selectedSize = selectElement.value;
-            
-            const existingItem = cart.find(item => item.name === name && item.size === selectedSize);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    name: name,
-                    price: price,
-                    size: selectedSize,
-                    quantity: 1
-                });
-            }
-            
-            updateCartUI();
-            alert(`تم إضافة "${name}" (مقاس: ${selectedSize}) إلى السلة بنجاح!`);
-        }
+    <dialog class="lightbox-dialog" id="imageDialog" aria-label="عرض صورة المنتج">
+        <button class="lightbox-close icon-button" type="button" data-close-dialog="imageDialog" aria-label="إغلاق الصورة">×</button>
+        <h2 class="lightbox-title" id="lightboxTitle"></h2>
+        <div class="lightbox-frame">
+            <img id="lightboxImage" src="" alt="">
+            <span class="qr-cover" id="lightboxQrCover" aria-hidden="true" hidden></span>
+        </div>
+    </dialog>
 
-        function updateCartUI() {
-            const cartCount = document.getElementById('cart-count');
-            const cartItemsList = document.getElementById('cartItemsList');
-            const cartTotal = document.getElementById('cartTotal');
-
-            let totalCount = 0;
-            let totalPrice = 0;
-
-            cartItemsList.innerHTML = '';
-
-            if (cart.length === 0) {
-                cartItemsList.innerHTML = '<li style="text-align: center; color: #64748b;">السلة فارغة حالياً</li>';
-            } else {
-                cart.forEach((item, index) => {
-                    totalCount += item.quantity;
-                    totalPrice += item.price * item.quantity;
-
-                    const li = document.createElement('li');
-                    li.className = 'cart-item';
-                    li.innerHTML = `
-                        <span>${item.name} (${item.size}) x${item.quantity}</span>
-                        <span>${item.price * item.quantity} ج.م 
-                            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer; margin-right:8px;">🗑️</button>
-                        </span>
-                    `;
-                    cartItemsList.appendChild(li);
-                });
-            }
-
-            cartCount.innerText = totalCount;
-            cartTotal.innerText = `الإجمالي: ${totalPrice} ج.م`;
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function checkoutWhatsApp() {
-            if (cart.length === 0) {
-                alert('السلة فارغة! يرجى إضافة منتجات أولاً.');
-                return;
-            }
-
-            const name = document.getElementById('customerName').value.trim();
-            const address = document.getElementById('customerAddress').value.trim();
-
-            if (!name || !address) {
-                alert('من فضلك ادخل (الاسم) و(العنوان) قبل تأكيد الطلب.');
-                return;
-            }
-
-            let message = `🛒 *طلب جديد من متجر أولاد عياد*%0A%0A`;
-            message += `👤 *اسم العميل:* ${name}%0A`;
-            message += `📍 *العنوان:* ${address}%0A%0A`;
-            message += `📦 *المنتجات المطلوبة:*%0A`;
-            
-            let totalPrice = 0;
-
-            cart.forEach(item => {
-                let itemTotal = item.price * item.quantity;
-                totalPrice += itemTotal;
-                message += `- ${item.name} | المقاس: ${item.size} | الكمية: ${item.quantity} | السعر: ${itemTotal} ج.م%0A`;
-            });
-
-            message += `%0A💰 *الإجمالي الكلي:* ${totalPrice} ج.م%0A`;
-            message += `💳 *طريقة الدفع:* انستاباي / محفظة على رقم 01067435137`;
-
-            let whatsappUrl = `https://wa.me/201067435137?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
-
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
